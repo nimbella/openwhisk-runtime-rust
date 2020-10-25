@@ -30,6 +30,9 @@ RUN curl -sL \
 
 FROM rust:1.34
 
+# install nim
+RUN curl https://apigcp.nimbella.io/downloads/nim/nim-install-linux.sh | bash
+
 # select the builder to use
 ARG GO_PROXY_BUILD_FROM=release
 
