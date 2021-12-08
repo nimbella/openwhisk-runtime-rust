@@ -39,7 +39,8 @@ FROM rust:1.34
 ARG GO_PROXY_BUILD_FROM=source
 
 # install nim
-RUN curl https://apigcp.nimbella.io/downloads/nim/nim-install-linux.sh | bash
+ARG NIM_INSTALL_SCRIPT=https://apigcp.nimbella.io/downloads/nim/nim-install-linux.sh
+RUN curl ${NIM_INSTALL_SCRIPT} | bash
 
 COPY --from=builder_source /bin/proxy /bin/proxy_source
 COPY --from=builder_release /bin/proxy /bin/proxy_release
